@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace YuvalTestDeploy.Migrations
+namespace Yuvaltest.Migrations
 {
     /// <inheritdoc />
     public partial class initialMigration : Migration

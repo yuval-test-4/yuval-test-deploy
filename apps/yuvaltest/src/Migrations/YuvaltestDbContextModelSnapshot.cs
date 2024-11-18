@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using YuvalTestDeploy.Infrastructure;
+using Yuvaltest.Infrastructure;
 
 #nullable disable
 
-namespace YuvalTestDeploy.Migrations
+namespace Yuvaltest.Migrations
 {
-    [DbContext(typeof(YuvalTestDeployDbContext))]
-    partial class YuvalTestDeployDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(YuvaltestDbContext))]
+    partial class YuvaltestDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -218,7 +218,7 @@ namespace YuvalTestDeploy.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("YuvalTestDeploy.Infrastructure.Models.CustomerDbModel", b =>
+            modelBuilder.Entity("Yuvaltest.Infrastructure.Models.CustomerDbModel", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -238,7 +238,7 @@ namespace YuvalTestDeploy.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("YuvalTestDeploy.Infrastructure.Models.OrderDbModel", b =>
+            modelBuilder.Entity("Yuvaltest.Infrastructure.Models.OrderDbModel", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -310,16 +310,16 @@ namespace YuvalTestDeploy.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("YuvalTestDeploy.Infrastructure.Models.OrderDbModel", b =>
+            modelBuilder.Entity("Yuvaltest.Infrastructure.Models.OrderDbModel", b =>
                 {
-                    b.HasOne("YuvalTestDeploy.Infrastructure.Models.CustomerDbModel", "Customer")
+                    b.HasOne("Yuvaltest.Infrastructure.Models.CustomerDbModel", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("YuvalTestDeploy.Infrastructure.Models.CustomerDbModel", b =>
+            modelBuilder.Entity("Yuvaltest.Infrastructure.Models.CustomerDbModel", b =>
                 {
                     b.Navigation("Orders");
                 });
