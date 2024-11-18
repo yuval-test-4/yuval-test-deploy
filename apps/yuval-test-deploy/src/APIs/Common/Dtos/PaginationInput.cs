@@ -1,4 +1,4 @@
-namespace YuvalTestDeploy.APIs.Common;
+namespace Yuvaltest.APIs.Common;
 
 public abstract class PaginationInput
 {

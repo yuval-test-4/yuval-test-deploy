@@ -26,4 +26,4 @@ COPY --from=build-env /App/out .
 COPY --from=build-env /App/DbMigrationsBundle ./DbMigrationsBundle
 COPY ./Migrations ./Migrations 
 
-ENTRYPOINT ["dotnet", "yuval-test-deploy.dll"]
+ENTRYPOINT ["dotnet", "yuvaltest.dll"]

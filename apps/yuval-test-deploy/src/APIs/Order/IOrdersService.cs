@@ -1,7 +1,7 @@
-using YuvalTestDeploy.APIs.Common;
-using YuvalTestDeploy.APIs.Dtos;
+using Yuvaltest.APIs.Common;
+using Yuvaltest.APIs.Dtos;
 
-namespace YuvalTestDeploy.APIs;
+namespace Yuvaltest.APIs;
 
 public interface IOrdersService
 {

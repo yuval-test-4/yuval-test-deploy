@@ -1,4 +1,4 @@
-namespace YuvalTestDeploy.APIs.Common;
+namespace Yuvaltest.APIs.Common;
 
 internal enum SortDirection
 {

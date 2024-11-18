@@ -1,9 +1,9 @@
-using YuvalTestDeploy.Infrastructure;
+using Yuvaltest.Infrastructure;
 
-namespace YuvalTestDeploy.APIs;
+namespace Yuvaltest.APIs;
 
 public class CustomersService : CustomersServiceBase
 {
-    public CustomersService(YuvalTestDeployDbContext context)
+    public CustomersService(YuvaltestDbContext context)
         : base(context) { }
 }

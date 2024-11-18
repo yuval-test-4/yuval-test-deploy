@@ -1,13 +1,13 @@
 {
-    "family": "yuval_test_deploy",
+    "family": "yuvaltest",
     "containerDefinitions": [
         {
-            "name": "yuval_test_deploy",
-            "image": "369232204790.dkr.ecr.us-east-1.amazonaws.com/yuval_test_deploy:latest",
+            "name": "yuvaltest",
+            "image": "369232204790.dkr.ecr.us-east-1.amazonaws.com/yuvaltest:latest",
             "essential": true,
             "portMappings": [
                 {
-                    "name": "yuval_test_deploy-8080-tcp",
+                    "name": "yuvaltest-8080-tcp",
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp"
@@ -26,26 +26,26 @@
             "secrets": [
                 {
                     "name": "BCRYPT_SALT",
-                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuval_test_deploy_secrets:BCRYPT_SALT::"
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuvaltest_secrets:BCRYPT_SALT::"
                 },
                 {
                     "name": "JWT_EXPIRATION",
-                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuval_test_deploy_secrets:JWT_EXPIRATION::"
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuvaltest_secrets:JWT_EXPIRATION::"
                 },
                 {
                     "name": "JWT_SECRET_KEY",
-                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuval_test_deploy_secrets:JWT_SECRET_KEY::"
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuvaltest_secrets:JWT_SECRET_KEY::"
                 },
                 {
                     "name": "DB_URL",
-                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuval_test_deploy_secrets:DB_URL::"
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:369232204790:secret:yuvaltest_secrets:DB_URL::"
                 }
             ],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/yuval_test_deploy",
+                    "awslogs-group": "/ecs/yuvaltest",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
@@ -54,7 +54,7 @@
             "volumesFrom": []
         }
     ],
-    "executionRoleArn": "arn:aws:iam::369232204790:role/custom_ecs_execution_yuval_test_deploy",
+    "executionRoleArn": "arn:aws:iam::369232204790:role/custom_ecs_execution_yuvaltest",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"

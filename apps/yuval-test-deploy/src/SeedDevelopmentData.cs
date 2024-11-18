@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using YuvalTestDeploy.Infrastructure;
-using YuvalTestDeploy.Infrastructure.Models;
+using Yuvaltest.Infrastructure;
+using Yuvaltest.Infrastructure.Models;
 
-namespace YuvalTestDeploy;
+namespace Yuvaltest;
 
 public class SeedDevelopmentData
 {
@@ -12,7 +12,7 @@ public class SeedDevelopmentData
         IConfiguration configuration
     )
     {
-        var context = serviceProvider.GetRequiredService<YuvalTestDeployDbContext>();
+        var context = serviceProvider.GetRequiredService<YuvaltestDbContext>();
         var userStore = new UserStore<IdentityUser>(context);
         var usernameValue = "test@email.com";
         var passwordValue = "P@ssw0rd!";

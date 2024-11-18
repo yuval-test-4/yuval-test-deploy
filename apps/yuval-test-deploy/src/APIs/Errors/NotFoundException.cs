@@ -1,4 +1,4 @@
-namespace YuvalTestDeploy.APIs.Errors;
+namespace Yuvaltest.APIs.Errors;
 
 public class NotFoundException : Exception
 {

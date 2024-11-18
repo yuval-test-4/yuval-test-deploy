@@ -1,8 +1,8 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using YuvalTestDeploy;
-using YuvalTestDeploy.APIs;
-using YuvalTestDeploy.Infrastructure;
+using Yuvaltest;
+using Yuvaltest.APIs;
+using Yuvaltest.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +29,7 @@ builder.Services.AddCors(builder =>
         }
     );
 });
-builder.Services.AddDbContext<YuvalTestDeployDbContext>(
+builder.Services.AddDbContext<YuvaltestDbContext>(
     (serviceProvider, opt) =>
     {
         var connectionString = Environment.GetEnvironmentVariable("DB_URL");

@@ -1,6 +1,6 @@
-using YuvalTestDeploy.APIs;
+using Yuvaltest.APIs;
 
-namespace YuvalTestDeploy;
+namespace Yuvaltest;
 
 public static class ServiceCollectionExtensions
 {

@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using YuvalTestDeploy.Infrastructure.Models;
+using Yuvaltest.Infrastructure.Models;
 
-namespace YuvalTestDeploy.Infrastructure;
+namespace Yuvaltest.Infrastructure;
 
-public class YuvalTestDeployDbContext : IdentityDbContext<IdentityUser>
+public class YuvaltestDbContext : IdentityDbContext<IdentityUser>
 {
-    public YuvalTestDeployDbContext(DbContextOptions<YuvalTestDeployDbContext> options)
+    public YuvaltestDbContext(DbContextOptions<YuvaltestDbContext> options)
         : base(options) { }
 
     public DbSet<CustomerDbModel> Customers { get; set; }

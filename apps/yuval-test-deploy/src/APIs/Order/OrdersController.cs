@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace YuvalTestDeploy.APIs;
+namespace Yuvaltest.APIs;
 
 [ApiController()]
 public class OrdersController : OrdersControllerBase

@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-state-demonstration"
-    key    = "development/yuval_test_deploy"
+    key    = "development/yuvaltest"
     region = "us-east-1"
   }
 }

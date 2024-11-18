@@ -1,4 +1,4 @@
-namespace YuvalTestDeploy.APIs.Dtos;
+namespace Yuvaltest.APIs.Dtos;
 
 public class OrderUpdateInput
 {

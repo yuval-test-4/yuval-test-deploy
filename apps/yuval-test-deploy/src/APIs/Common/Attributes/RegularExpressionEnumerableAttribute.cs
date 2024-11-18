@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
-namespace YuvalTestDeploy.APIs.Common.Attributes;
+namespace Yuvaltest.APIs.Common.Attributes;
 
 public class RegularExpressionEnumerable : RegularExpressionAttribute
 {

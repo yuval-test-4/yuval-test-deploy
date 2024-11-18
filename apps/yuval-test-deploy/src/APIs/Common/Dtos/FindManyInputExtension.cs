@@ -1,6 +1,6 @@
 using System.Linq.Dynamic.Core;
 
-namespace YuvalTestDeploy.APIs.Common;
+namespace Yuvaltest.APIs.Common;
 
 public static class FindManyInputExtension
 {

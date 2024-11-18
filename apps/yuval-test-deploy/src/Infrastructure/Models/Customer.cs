@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YuvalTestDeploy.Infrastructure.Models;
+namespace Yuvaltest.Infrastructure.Models;
 
 [Table("Customers")]
 public class CustomerDbModel

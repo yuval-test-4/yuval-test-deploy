@@ -1,23 +1,23 @@
-module "ecs_service_yuval_test_deploy" {
+module "ecs_service_yuvaltest" {
   source  = "terraform-aws-modules/ecs/aws//modules/service"
   version = "5.2.2"
 
-  name        = "yuval_test_deploy"
-  cluster_arn = module.ecs_cluster_yuval_test_deploy.arn
+  name        = "yuvaltest"
+  cluster_arn = module.ecs_cluster_yuvaltest.arn
 
   cpu    = 1024
   memory = 4096
 
   container_definitions = {
-    ("yuval_test_deploy") = {
+    ("yuvaltest") = {
       essential = true
       cpu       = 512
       memory    = 1024
-      image     = module.ecr_yuval_test_deploy.repository_url
+      image     = module.ecr_yuvaltest.repository_url
 
       port_mappings = [
         {
-          name          = "yuval_test_deploy"
+          name          = "yuvaltest"
           containerPort = 8080
           hostPort      = 8080
           protocol      = "tcp"
@@ -31,7 +31,7 @@ module "ecs_service_yuval_test_deploy" {
         logDriver = "awslogs"
         options = {
           awslogs-create-group  = "true"
-          awslogs-group         = "/ecs/yuval_test_deploy"
+          awslogs-group         = "/ecs/yuvaltest"
           awslogs-region        = local.region
           awslogs-stream-prefix = "ecs"
         }
@@ -43,8 +43,8 @@ module "ecs_service_yuval_test_deploy" {
 
   load_balancer = {
     service = {
-      target_group_arn = element(module.ecs_alb_yuval_test_deploy.target_group_arns, 0)
-      container_name   = "yuval_test_deploy"
+      target_group_arn = element(module.ecs_alb_yuvaltest.target_group_arns, 0)
+      container_name   = "yuvaltest"
       container_port   = 8080
     }
   }
@@ -57,7 +57,7 @@ module "ecs_service_yuval_test_deploy" {
       from_port                = 8080
       to_port                  = 8080
       protocol                 = "tcp"
-      source_security_group_id = module.ecs_alb_sg_yuval_test_deploy.security_group_id
+      source_security_group_id = module.ecs_alb_sg_yuvaltest.security_group_id
     }
     egress_all = {
       type        = "egress"
@@ -69,41 +69,41 @@ module "ecs_service_yuval_test_deploy" {
   }
 }
 
-resource "aws_service_discovery_http_namespace" "yuval_test_deploy" {
-  name = "yuval_test_deploy"
+resource "aws_service_discovery_http_namespace" "yuvaltest" {
+  name = "yuvaltest"
 }
 
-output "service_id_yuval_test_deploy" {
+output "service_id_yuvaltest" {
   description = "ARN that identifies the service"
-  value       = module.ecs_service_yuval_test_deploy.id
+  value       = module.ecs_service_yuvaltest.id
 }
 
-output "service_name_yuval_test_deploy" {
+output "service_name_yuvaltest" {
   description = "Name of the service"
-  value       = module.ecs_service_yuval_test_deploy.name
+  value       = module.ecs_service_yuvaltest.name
 }
 
-output "service_iam_role_name_yuval_test_deploy" {
+output "service_iam_role_name_yuvaltest" {
   description = "Service IAM role name"
-  value       = module.ecs_service_yuval_test_deploy.iam_role_name
+  value       = module.ecs_service_yuvaltest.iam_role_name
 }
 
-output "service_iam_role_arn_yuval_test_deploy" {
+output "service_iam_role_arn_yuvaltest" {
   description = "Service IAM role ARN"
-  value       = module.ecs_service_yuval_test_deploy.iam_role_arn
+  value       = module.ecs_service_yuvaltest.iam_role_arn
 }
 
-output "service_iam_role_unique_id_yuval_test_deploy" {
+output "service_iam_role_unique_id_yuvaltest" {
   description = "Stable and unique string identifying the service IAM role"
-  value       = module.ecs_service_yuval_test_deploy.iam_role_unique_id
+  value       = module.ecs_service_yuvaltest.iam_role_unique_id
 }
 
-output "service_container_definitions_yuval_test_deploy" {
+output "service_container_definitions_yuvaltest" {
   description = "Container definitions"
-  value       = module.ecs_service_yuval_test_deploy.container_definitions
+  value       = module.ecs_service_yuvaltest.container_definitions
 }
 
-output "service_task_definition_arn_yuval_test_deploy" {
+output "service_task_definition_arn_yuvaltest" {
   description = "Full ARN of the Task Definition (including both `family` and `revision`)"
-  value       = module.ecs_service_yuval_test_deploy.task_definition_arn
+  value       = module.ecs_service_yuvaltest.task_definition_arn
 }
