@@ -17,7 +17,7 @@ public class SeedDevelopmentData
         var usernameValue = "test@email.com";
         var passwordValue = "P@ssw0rd!";
 
-        var existingUser = await userStore.FindByEmailAsync(usernameValue);
+        var existingUser = await userStore.FindByEmailAsync(usernameValue.ToUpperInvariant());
         if (existingUser != null)
         {
             return;
