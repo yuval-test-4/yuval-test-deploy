@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using YuvalTestDeploy.APIs;
-using YuvalTestDeploy.APIs.Common;
-using YuvalTestDeploy.APIs.Dtos;
-using YuvalTestDeploy.APIs.Errors;
+using Yuvaltest.APIs;
+using Yuvaltest.APIs.Common;
+using Yuvaltest.APIs.Dtos;
+using Yuvaltest.APIs.Errors;
 
-namespace YuvalTestDeploy.APIs;
+namespace Yuvaltest.APIs;
 
 [Route("api/[controller]")]
 [ApiController()]

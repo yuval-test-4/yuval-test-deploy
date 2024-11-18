@@ -1,7 +1,7 @@
-using YuvalTestDeploy.APIs.Dtos;
-using YuvalTestDeploy.Infrastructure.Models;
+using Yuvaltest.APIs.Dtos;
+using Yuvaltest.Infrastructure.Models;
 
-namespace YuvalTestDeploy.APIs.Extensions;
+namespace Yuvaltest.APIs.Extensions;
 
 public static class CustomersExtensions
 {

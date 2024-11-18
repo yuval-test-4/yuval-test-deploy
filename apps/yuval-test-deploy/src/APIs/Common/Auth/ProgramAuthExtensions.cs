@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
-using YuvalTestDeploy.Infrastructure;
+using Yuvaltest.Infrastructure;
 
-namespace YuvalTestDeploy.APIs;
+namespace Yuvaltest.APIs;
 
 public static class ProgramAuthExtensions
 {
@@ -14,7 +14,7 @@ public static class ProgramAuthExtensions
         services
             .AddIdentityApiEndpoints<IdentityUser>()
             .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<YuvalTestDeployDbContext>();
+            .AddEntityFrameworkStores<YuvaltestDbContext>();
     }
 
     public static void UseApiAuthentication(this WebApplication app)

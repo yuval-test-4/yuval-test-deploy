@@ -1,4 +1,4 @@
-name: yuval_test_deploy-deploy-to-aws-ecs
+name: yuvaltest-deploy-to-aws-ecs
 concurrency: ${{ github.ref }}
 
 on:
@@ -8,10 +8,10 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: yuval_test_deploy
-  ECS_SERVICE: yuval_test_deploy
-  ECS_CLUSTER: development-cluster-yuval_test_deploy
-  ECS_TASK_DEFINITION: .github/workflows/configuration/cd-yuval_test_deploy-aws-ecs.json
+  ECR_REPOSITORY: yuvaltest
+  ECS_SERVICE: yuvaltest
+  ECS_CLUSTER: development-cluster-yuvaltest
+  ECS_TASK_DEFINITION: .github/workflows/configuration/cd-yuvaltest-aws-ecs.json
 
 jobs:
   terraform:
@@ -44,7 +44,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.registry.outputs.registry }}
           IMAGE_TAG: ${{github.sha}}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./apps/yuval_test_deploy/src
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./apps/yuvaltest/src
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 

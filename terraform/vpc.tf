@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
 
-  name                         = join("-", ["vpc", local.environment, "yuval_test_deploy"])
+  name                         = join("-", ["vpc", local.environment, "yuvaltest"])
   cidr                         = local.vpc_cidr_block
   azs                          = local.vpc_azs
   private_subnets              = [for k, v in local.vpc_azs : cidrsubnet(local.vpc_cidr_block, 8, k)]
@@ -15,11 +15,11 @@ module "vpc" {
   single_nat_gateway           = true
 }
 
-module "sg_yuval_test_deploy" {
+module "sg_yuvaltest" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "5.0.0"
 
-  name   = "rds-yuval_test_deploy"
+  name   = "rds-yuvaltest"
   vpc_id = module.vpc.vpc_id
 
   ingress_with_cidr_blocks = [

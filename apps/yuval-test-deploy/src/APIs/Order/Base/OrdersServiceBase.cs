@@ -1,19 +1,19 @@
 using Microsoft.EntityFrameworkCore;
-using YuvalTestDeploy.APIs;
-using YuvalTestDeploy.APIs.Common;
-using YuvalTestDeploy.APIs.Dtos;
-using YuvalTestDeploy.APIs.Errors;
-using YuvalTestDeploy.APIs.Extensions;
-using YuvalTestDeploy.Infrastructure;
-using YuvalTestDeploy.Infrastructure.Models;
+using Yuvaltest.APIs;
+using Yuvaltest.APIs.Common;
+using Yuvaltest.APIs.Dtos;
+using Yuvaltest.APIs.Errors;
+using Yuvaltest.APIs.Extensions;
+using Yuvaltest.Infrastructure;
+using Yuvaltest.Infrastructure.Models;
 
-namespace YuvalTestDeploy.APIs;
+namespace Yuvaltest.APIs;
 
 public abstract class OrdersServiceBase : IOrdersService
 {
-    protected readonly YuvalTestDeployDbContext _context;
+    protected readonly YuvaltestDbContext _context;
 
-    public OrdersServiceBase(YuvalTestDeployDbContext context)
+    public OrdersServiceBase(YuvaltestDbContext context)
     {
         _context = context;
     }

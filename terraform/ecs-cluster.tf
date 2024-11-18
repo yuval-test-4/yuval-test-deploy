@@ -1,8 +1,8 @@
-module "ecs_cluster_yuval_test_deploy" {
+module "ecs_cluster_yuvaltest" {
   source  = "terraform-aws-modules/ecs/aws//modules/cluster"
   version = "5.2.2"
 
-  cluster_name = "${local.environment}-cluster-yuval_test_deploy"
+  cluster_name = "${local.environment}-cluster-yuvaltest"
 
   fargate_capacity_providers = {
     FARGATE = {
@@ -21,20 +21,20 @@ module "ecs_cluster_yuval_test_deploy" {
 
 output "cluster_arn" {
   description = "ARN that identifies the cluster"
-  value       = module.ecs_cluster_yuval_test_deploy.arn
+  value       = module.ecs_cluster_yuvaltest.arn
 }
 
 output "cluster_id" {
   description = "ID that identifies the cluster"
-  value       = module.ecs_cluster_yuval_test_deploy.id
+  value       = module.ecs_cluster_yuvaltest.id
 }
 
 output "cluster_name" {
   description = "Name that identifies the cluster"
-  value       = module.ecs_cluster_yuval_test_deploy.name
+  value       = module.ecs_cluster_yuvaltest.name
 }
 
 output "cluster_capacity_providers" {
   description = "Map of cluster capacity providers attributes"
-  value       = module.ecs_cluster_yuval_test_deploy.cluster_capacity_providers
+  value       = module.ecs_cluster_yuvaltest.cluster_capacity_providers
 }

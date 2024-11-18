@@ -1,6 +1,6 @@
-using YuvalTestDeploy.APIs.Common.Attributes;
+using Yuvaltest.APIs.Common.Attributes;
 
-namespace YuvalTestDeploy.APIs.Common;
+namespace Yuvaltest.APIs.Common;
 
 public abstract class FindManyInput<M, W> : PaginationInput, IFindManyInput<M, W>
     where W : class

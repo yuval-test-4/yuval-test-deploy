@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace YuvalTestDeploy;
+namespace Yuvaltest;
 
 public class RolesManager
 {
