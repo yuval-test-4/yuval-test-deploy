@@ -29,8 +29,12 @@ builder.Services.AddCors(builder =>
         }
     );
 });
-builder.Services.AddDbContext<YuvalTestDeployDbContext>(opt =>
-    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+builder.Services.AddDbContext<YuvalTestDeployDbContext>(
+    (serviceProvider, opt) =>
+    {
+        var connectionString = Environment.GetEnvironmentVariable("DB_URL");
+        opt.UseNpgsql(connectionString);
+    }
 );
 builder.Services.AddApiAuthentication();
 var app = builder.Build();
@@ -66,5 +70,10 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await SeedDevelopmentData.SeedDevUser(services, app.Configuration);
+}
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<DotnetMigrationsDbContext>();
+    db.Database.Migrate();
 }
 app.Run();
