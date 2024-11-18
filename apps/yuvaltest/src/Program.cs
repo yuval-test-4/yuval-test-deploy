@@ -60,6 +60,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<YuvaltestDbContext>();
+    db.Database.Migrate();
+}
 app.UseApiAuthentication();
 using (var scope = app.Services.CreateScope())
 {
@@ -70,10 +75,5 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await SeedDevelopmentData.SeedDevUser(services, app.Configuration);
-}
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<YuvaltestDbContext>();
-    db.Database.Migrate();
 }
 app.Run();
